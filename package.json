@@ -71,7 +71,7 @@
     "websocket-extensions": "^0.1.4"
   },
   "dependencies": {
-    "@stepkillah/react-input-position": "github:stepkillah/react-input-position",
+    "@stepkillah/react-input-position": "^1.4.0",
     "eslint-webpack-plugin": "^4.2.0",
     "prop-types": "^15.8.1"
   }
