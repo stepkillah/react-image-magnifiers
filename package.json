@@ -1,6 +1,6 @@
 {
-  "name": "@vanyapr/react-image-magnifiers",
-  "version": "1.4.0",
+  "name": "@stepkillah/react-image-magnifiers",
+  "version": "1.5.0",
   "description": "A collection of responsive, image magnifying React components for mouse and touch.",
   "keywords": [
     "react",
@@ -21,7 +21,7 @@
   "author": "Adam Risberg <myniztan@hotmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vanyapr/react-image-magnifiers"
+    "url": "https://github.com/stepkillah/react-image-magnifiers"
   },
   "homepage": "https://adamrisberg.github.io/react-image-magnifiers",
   "main": "dist/index.js",
@@ -71,8 +71,8 @@
     "websocket-extensions": "^0.1.4"
   },
   "dependencies": {
+    "@stepkillah/react-image-magnifiers": "file:",
     "@stepkillah/react-input-position": "github:stepkillah/react-input-position",
-    "@vanyapr/react-image-magnifiers": "file:",
     "eslint-webpack-plugin": "^4.2.0",
     "prop-types": "^15.8.1"
   }
