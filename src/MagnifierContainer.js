@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { defaultState } from "react-input-position";
-import utils from "./utils";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { defaultState } from '@stepkillah/react-input-position';
+import utils from './utils';
 
 export const MagnifierContext = React.createContext();
 
@@ -29,14 +29,7 @@ class MagnifierContainer extends Component {
       return { width: 0, height: 0, left: 0, right: 0, top: 0, bottom: 0 };
     }
 
-    const {
-      width,
-      height,
-      left,
-      right,
-      top,
-      bottom
-    } = this.zoomContainerRef.current.getBoundingClientRect();
+    const { width, height, left, right, top, bottom } = this.zoomContainerRef.current.getBoundingClientRect();
 
     return { width, height, left, right, top, bottom };
   };
@@ -52,11 +45,11 @@ class MagnifierContainer extends Component {
     return this.zoomImageDimensions;
   }
 
-  onUpdate = changes => {
+  onUpdate = (changes) => {
     this.setState({ inputPositionState: changes });
   };
 
-  onZoomImageLoad = e => {
+  onZoomImageLoad = (e) => {
     const rect = e.target.getBoundingClientRect();
     this.zoomImageDimensions = {
       width: rect.width,
@@ -90,11 +83,7 @@ class MagnifierContainer extends Component {
         const { left, right } = zoomContainerDimensions;
         const windowWidth = window.innerWidth;
 
-        if (
-          windowWidth < inPlaceMinBreakpoint ||
-          left < 0 ||
-          right > windowWidth
-        ) {
+        if (windowWidth < inPlaceMinBreakpoint || left < 0 || right > windowWidth) {
           inPlace = true;
         }
       } catch (e) {}
@@ -106,14 +95,8 @@ class MagnifierContainer extends Component {
     };
 
     const previewSize = {
-      width: Math.floor(
-        smallImageSize.width *
-          (zoomContainerDimensions.width / zoomImageDimensions.width)
-      ),
-      height: Math.floor(
-        smallImageSize.height *
-          (zoomContainerDimensions.height / zoomImageDimensions.height)
-      )
+      width: Math.floor(smallImageSize.width * (zoomContainerDimensions.width / zoomImageDimensions.width)),
+      height: Math.floor(smallImageSize.height * (zoomContainerDimensions.height / zoomImageDimensions.height))
     };
 
     let position = { x: 0, y: 0 };
@@ -125,21 +108,13 @@ class MagnifierContainer extends Component {
     };
 
     itemPositionAdj.x = Math.max(previewOffset.x, itemPositionAdj.x);
-    itemPositionAdj.x = Math.min(
-      smallImageSize.width - previewOffset.x,
-      itemPositionAdj.x
-    );
+    itemPositionAdj.x = Math.min(smallImageSize.width - previewOffset.x, itemPositionAdj.x);
     itemPositionAdj.y = Math.max(previewOffset.y, itemPositionAdj.y);
-    itemPositionAdj.y = Math.min(
-      smallImageSize.height - previewOffset.y,
-      itemPositionAdj.y
-    );
+    itemPositionAdj.y = Math.min(smallImageSize.height - previewOffset.y, itemPositionAdj.y);
 
     position = { ...itemPositionAdj };
 
-    const zoomContainerSize = inPlace
-      ? smallImageSize
-      : zoomContainerDimensions;
+    const zoomContainerSize = inPlace ? smallImageSize : zoomContainerDimensions;
 
     position.x = utils.convertRange(
       previewOffset.x,
@@ -156,16 +131,8 @@ class MagnifierContainer extends Component {
       position.y
     );
 
-    position.x = utils.invertNumber(
-      zoomImageDimensions.width * -1 + zoomContainerSize.width,
-      0,
-      position.x
-    );
-    position.y = utils.invertNumber(
-      zoomImageDimensions.height * -1 + zoomContainerSize.height,
-      0,
-      position.y
-    );
+    position.x = utils.invertNumber(zoomImageDimensions.width * -1 + zoomContainerSize.width, 0, position.x);
+    position.y = utils.invertNumber(zoomImageDimensions.height * -1 + zoomContainerSize.height, 0, position.y);
 
     previewSize.left = Math.floor(itemPositionAdj.x - previewOffset.x) || 0;
     previewSize.right = Math.floor(itemPositionAdj.x + previewOffset.x) || 0;
@@ -186,9 +153,7 @@ class MagnifierContainer extends Component {
 
     return (
       <div style={style} className={className}>
-        <MagnifierContext.Provider value={this.getContextValue()}>
-          {this.props.children}
-        </MagnifierContext.Provider>
+        <MagnifierContext.Provider value={this.getContextValue()}>{this.props.children}</MagnifierContext.Provider>
       </div>
     );
   }

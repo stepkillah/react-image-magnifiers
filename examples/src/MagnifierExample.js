@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import ExampleContainer from "./ExampleContainer";
-import { Magnifier, MOUSE_ACTIVATION, TOUCH_ACTIVATION } from "../../src";
-import MagnifierExampleControls from "./MagnifierExampleControls";
+import React, { Component } from 'react';
+import ExampleContainer from './ExampleContainer';
+import { Magnifier, MOUSE_ACTIVATION, TOUCH_ACTIVATION } from '../../src';
+import MagnifierExampleControls from './MagnifierExampleControls';
 
 class MagnifierExample extends Component {
   state = {
@@ -10,12 +10,12 @@ class MagnifierExample extends Component {
     dragToMove: true
   };
 
-  handleBoolChange = key => e => {
+  handleBoolChange = (key) => (e) => {
     const value = Boolean(e.target.value);
     this.setState(() => ({ [key]: value }));
   };
 
-  handleActivationChange = key => e => {
+  handleActivationChange = (key) => (e) => {
     const value = e.target.value;
     this.setState(() => ({ [key]: value }));
   };

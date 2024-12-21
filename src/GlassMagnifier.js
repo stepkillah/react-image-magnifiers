@@ -1,13 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import utils from "./utils";
-import ReactInputPosition, {
-  TOUCH_ACTIVATION,
-  MOUSE_ACTIVATION
-} from "react-input-position";
-import GlassRenderer from "./GlassRenderer";
+import React from 'react';
+import PropTypes from 'prop-types';
+import utils from './utils';
+import ReactInputPosition, { TOUCH_ACTIVATION, MOUSE_ACTIVATION } from '@stepkillah/react-input-position';
+import GlassRenderer from './GlassRenderer';
 
-const GlassMagnifier = props => {
+const GlassMagnifier = (props) => {
   const {
     imageSrc,
     largeImageSrc,
@@ -34,8 +31,8 @@ const GlassMagnifier = props => {
     <ReactInputPosition
       style={{
         ...style,
-        position: "relative",
-        overflow: allowOverflow ? "visible" : "hidden"
+        position: 'relative',
+        overflow: allowOverflow ? 'visible' : 'hidden'
       }}
       className={className}
       touchActivationMethod={TOUCH_ACTIVATION.TOUCH}
@@ -67,14 +64,8 @@ const GlassMagnifier = props => {
 };
 
 GlassMagnifier.propTypes = {
-  imageSrc: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string)
-  ]),
-  largeImageSrc: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string)
-  ]),
+  imageSrc: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+  largeImageSrc: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
   imageAlt: PropTypes.string,
   allowOverflow: PropTypes.bool,
   magnifierBorderSize: PropTypes.number,
@@ -93,18 +84,18 @@ GlassMagnifier.propTypes = {
 };
 
 GlassMagnifier.defaultProps = {
-  imageSrc: "",
-  largeImageSrc: "",
-  imageAlt: "",
+  imageSrc: '',
+  largeImageSrc: '',
+  imageAlt: '',
   allowOverflow: false,
   magnifierBorderSize: 3,
-  magnifierBorderColor: "rgba(255,255,255,.5)",
-  magnifierBackgroundColor: "rgba(225,225,225,.5)",
-  magnifierSize: "25%",
+  magnifierBorderColor: 'rgba(255,255,255,.5)',
+  magnifierBackgroundColor: 'rgba(225,225,225,.5)',
+  magnifierSize: '25%',
   magnifierOffsetX: 0,
   magnifierOffsetY: 0,
   square: false,
-  cursorStyle: "none",
+  cursorStyle: 'none',
   onImageLoad: utils.noop,
   onLargeImageLoad: utils.noop
 };

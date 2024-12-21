@@ -1,37 +1,44 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
-  template: path.join(__dirname, "examples/src/index.html"),
-  filename: "./index.html",
-  favicon: "./examples/src/favicon.ico"
+  template: path.join(__dirname, 'examples/src/index.html'),
+  filename: './index.html',
+  favicon: './examples/src/favicon.ico'
 });
 
 module.exports = {
-  entry: path.join(__dirname, "examples/src/index.js"),
+  entry: path.join(__dirname, 'examples/src/index.js'),
   output: {
-    path: path.join(__dirname, "examples/dist"),
-    filename: "bundle.js"
+    path: path.join(__dirname, 'examples/dist'),
+    filename: 'bundle.js'
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        use: ["babel-loader", "eslint-loader"],
+        use: ['babel-loader'],
         exclude: /node_modules/
       },
       {
         test: /\.(jpg|jpeg|png)$/,
-        use: "file-loader"
+        use: 'file-loader'
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
-  plugins: [htmlWebpackPlugin],
+  plugins: [
+    htmlWebpackPlugin,
+    new ESLintPlugin({
+      extensions: ['js', 'jsx'],
+      exclude: 'node_modules'
+    })
+  ],
   resolve: {
-    extensions: [".js", ".jsx"]
+    extensions: ['.js', '.jsx']
   },
   devServer: {
     port: 3001

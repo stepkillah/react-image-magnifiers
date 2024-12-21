@@ -1,21 +1,22 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import { createRoot } from 'react-dom/client';
 
-import GlassExample from "./GlassExample";
-import MagnifierExample from "./MagnifierExample";
-import PictureExample from "./PictureExample";
-import SideExample from "./SideExample";
-import Header from "./Header";
+import GlassExample from './GlassExample';
+import MagnifierExample from './MagnifierExample';
+import PictureExample from './PictureExample';
+import SideExample from './SideExample';
+import Header from './Header';
+import sampleImage from './sample-image.jpg';
 
-import "./style.css";
+import './style.css';
 
-const image = require("./sample-image.jpg");
+const image = sampleImage;
 
 const DemoApp = () => {
   return (
     <React.Fragment>
       <Header />
-      <div style={{ paddingBottom: "100px" }} className="app">
+      <div style={{ paddingBottom: '100px' }} className="app">
         <MagnifierExample image={image} />
         <GlassExample image={image} />
         <PictureExample image={image} />
@@ -25,4 +26,5 @@ const DemoApp = () => {
   );
 };
 
-ReactDOM.render(<DemoApp />, document.getElementById("root"));
+const root = createRoot(document.getElementById('root'));
+root.render(<DemoApp />);

@@ -1,12 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import utils from "./utils";
-import ReactInputPosition, {
-  MOUSE_ACTIVATION,
-  TOUCH_ACTIVATION
-} from "react-input-position";
-import MagnifierPreviewRenderer from "./MagnifierPreviewRenderer";
-import { MagnifierContext } from "./MagnifierContainer";
+import React from 'react';
+import PropTypes from 'prop-types';
+import utils from './utils';
+import ReactInputPosition, { MOUSE_ACTIVATION, TOUCH_ACTIVATION } from '@stepkillah/react-input-position';
+import MagnifierPreviewRenderer from './MagnifierPreviewRenderer';
+import { MagnifierContext } from './MagnifierContainer';
 
 function MagnifierPreview(props) {
   const {
@@ -32,15 +29,8 @@ function MagnifierPreview(props) {
     touchActivation
   } = props;
 
-  const {
-    stateOverride,
-    onUpdate,
-    zoomImageDimensions,
-    previewSize,
-    smallImageSize,
-    position,
-    inPlace
-  } = React.useContext(MagnifierContext);
+  const { stateOverride, onUpdate, zoomImageDimensions, previewSize, smallImageSize, position, inPlace } =
+    React.useContext(MagnifierContext);
 
   return (
     <ReactInputPosition
@@ -84,14 +74,8 @@ MagnifierPreview.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
   cursorStyle: PropTypes.string,
-  imageSrc: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string)
-  ]),
-  largeImageSrc: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string)
-  ]),
+  imageSrc: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+  largeImageSrc: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
   imageAlt: PropTypes.string,
   onImageLoad: PropTypes.func,
   onLargeImageLoad: PropTypes.func,
@@ -108,15 +92,15 @@ MagnifierPreview.propTypes = {
 };
 
 MagnifierPreview.defaultProps = {
-  cursorStyle: "crosshair",
-  imageSrc: "",
-  imageAlt: "",
+  cursorStyle: 'crosshair',
+  imageSrc: '',
+  imageAlt: '',
   overlayOpacity: 0.5,
   overlayBoxOpacity: 0.8,
-  overlayBackgroundColor: "#000",
-  overlayBoxColor: "#fff",
-  overlayBoxImage: "",
-  overlayBoxImageSize: "",
+  overlayBackgroundColor: '#000',
+  overlayBoxColor: '#fff',
+  overlayBoxImage: '',
+  overlayBoxImageSize: '',
   transitionSpeed: 0.4,
   onImageLoad: utils.noop,
   onLargeImageLoad: utils.noop,

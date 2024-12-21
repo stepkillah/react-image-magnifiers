@@ -1,13 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import utils from "./utils";
-import ReactInputPosition, {
-  TOUCH_ACTIVATION,
-  MOUSE_ACTIVATION
-} from "react-input-position";
-import MagnifierRenderer from "./MagnifierRenderer";
+import React from 'react';
+import PropTypes from 'prop-types';
+import utils from './utils';
+import ReactInputPosition, { TOUCH_ACTIVATION, MOUSE_ACTIVATION } from '@stepkillah/react-input-position';
+import MagnifierRenderer from './MagnifierRenderer';
 
-const Magnifier = props => {
+const Magnifier = (props) => {
   const {
     imageSrc,
     largeImageSrc,
@@ -29,8 +26,7 @@ const Magnifier = props => {
     onZoomEnd
   } = props;
 
-  const finalActiveCursorStyle =
-    cursorStyleActive || dragToMove ? "move" : "zoom-out";
+  const finalActiveCursorStyle = cursorStyleActive || dragToMove ? 'move' : 'zoom-out';
 
   return (
     <ReactInputPosition
@@ -63,14 +59,8 @@ const Magnifier = props => {
 };
 
 Magnifier.propTypes = {
-  imageSrc: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string)
-  ]),
-  largeImageSrc: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string)
-  ]),
+  imageSrc: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+  largeImageSrc: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
   imageAlt: PropTypes.string,
   cursorStyle: PropTypes.string,
   cursorStyleActive: PropTypes.string,
@@ -92,11 +82,11 @@ Magnifier.propTypes = {
 };
 
 Magnifier.defaultProps = {
-  imageSrc: "",
-  largeImageSrc: "",
-  imageAlt: "",
-  cursorStyle: "zoom-in",
-  cursorStyleActive: "",
+  imageSrc: '',
+  largeImageSrc: '',
+  imageAlt: '',
+  cursorStyle: 'zoom-in',
+  cursorStyleActive: '',
   dragToMove: true,
   mouseActivation: MOUSE_ACTIVATION.CLICK,
   touchActivation: TOUCH_ACTIVATION.TAP,

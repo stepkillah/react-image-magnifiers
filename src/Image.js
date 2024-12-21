@@ -1,7 +1,7 @@
-import React from "react";
-import utils from "./utils";
+import React from 'react';
+import utils from './utils';
 
-const Image = React.forwardRef(function(props, ref) {
+const Image = React.forwardRef(function (props, ref) {
   const { onImageLoad, onLoadRefresh, src, alt, ...otherProps } = props;
 
   const [imageIdx, setImageIdx] = React.useState(0);
@@ -13,17 +13,17 @@ const Image = React.forwardRef(function(props, ref) {
       ref={ref}
       src={imageArr[imageIdx]}
       alt={alt}
-      onLoad={e => {
+      onLoad={(e) => {
         onImageLoad(e);
 
         if (imageErrorRef.current) {
           onLoadRefresh();
         }
       }}
-      onError={e => {
+      onError={(e) => {
         if (imageIdx < imageArr.length) {
           imageErrorRef.current = true;
-          setImageIdx(idx => idx + 1);
+          setImageIdx((idx) => idx + 1);
         }
       }}
       {...otherProps}
