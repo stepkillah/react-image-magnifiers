@@ -71,7 +71,6 @@
     "websocket-extensions": "^0.1.4"
   },
   "dependencies": {
-    "@stepkillah/react-image-magnifiers": "file:",
     "@stepkillah/react-input-position": "github:stepkillah/react-input-position",
     "eslint-webpack-plugin": "^4.2.0",
     "prop-types": "^15.8.1"
