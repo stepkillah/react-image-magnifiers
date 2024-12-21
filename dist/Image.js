@@ -17,12 +17,14 @@ function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" !=
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 function _objectWithoutProperties(e, t) { if (null == e) return {}; var o, r, i = _objectWithoutPropertiesLoose(e, t); if (Object.getOwnPropertySymbols) { var s = Object.getOwnPropertySymbols(e); for (r = 0; r < s.length; r++) o = s[r], t.includes(o) || {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]); } return i; }
 function _objectWithoutPropertiesLoose(r, e) { if (null == r) return {}; var t = {}; for (var n in r) if ({}.hasOwnProperty.call(r, n)) { if (e.includes(n)) continue; t[n] = r[n]; } return t; }
-var Image = /*#__PURE__*/_react["default"].forwardRef(function (props, ref) {
-  var onImageLoad = props.onImageLoad,
-    onLoadRefresh = props.onLoadRefresh,
-    src = props.src,
-    alt = props.alt,
-    otherProps = _objectWithoutProperties(props, _excluded);
+var Image = /*#__PURE__*/_react["default"].forwardRef(function (_ref, ref) {
+  var _ref$onImageLoad = _ref.onImageLoad,
+    onImageLoad = _ref$onImageLoad === void 0 ? _utils["default"].noop : _ref$onImageLoad,
+    _ref$onLoadRefresh = _ref.onLoadRefresh,
+    onLoadRefresh = _ref$onLoadRefresh === void 0 ? _utils["default"].noop : _ref$onLoadRefresh,
+    src = _ref.src,
+    alt = _ref.alt,
+    otherProps = _objectWithoutProperties(_ref, _excluded);
   var _React$useState = _react["default"].useState(0),
     _React$useState2 = _slicedToArray(_React$useState, 2),
     imageIdx = _React$useState2[0],
@@ -49,8 +51,4 @@ var Image = /*#__PURE__*/_react["default"].forwardRef(function (props, ref) {
     }
   }, otherProps));
 });
-Image.defaultProps = {
-  onImageLoad: _utils["default"].noop,
-  onLoadRefresh: _utils["default"].noop
-};
 var _default = exports["default"] = Image;

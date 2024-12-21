@@ -17,13 +17,18 @@ function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t =
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-function MagnifierZoom(props) {
-  var imageSrc = props.imageSrc,
-    imageAlt = props.imageAlt,
-    className = props.className,
-    style = props.style,
-    _onImageLoad = props.onImageLoad,
-    transitionSpeed = props.transitionSpeed;
+function MagnifierZoom(_ref) {
+  var className = _ref.className,
+    _ref$style = _ref.style,
+    style = _ref$style === void 0 ? {} : _ref$style,
+    _ref$imageSrc = _ref.imageSrc,
+    imageSrc = _ref$imageSrc === void 0 ? '' : _ref$imageSrc,
+    _ref$imageAlt = _ref.imageAlt,
+    imageAlt = _ref$imageAlt === void 0 ? '' : _ref$imageAlt,
+    _ref$onImageLoad = _ref.onImageLoad,
+    _onImageLoad = _ref$onImageLoad === void 0 ? _utils["default"].noop : _ref$onImageLoad,
+    _ref$transitionSpeed = _ref.transitionSpeed,
+    transitionSpeed = _ref$transitionSpeed === void 0 ? 0.4 : _ref$transitionSpeed;
   var _React$useContext = _react["default"].useContext(_MagnifierContainer.MagnifierContext),
     zoomImageDimensions = _React$useContext.zoomImageDimensions,
     zoomContainerDimensions = _React$useContext.zoomContainerDimensions,
@@ -38,8 +43,8 @@ function MagnifierZoom(props) {
   return /*#__PURE__*/_react["default"].createElement("div", {
     className: className,
     style: _objectSpread(_objectSpread(_objectSpread({}, _styles["default"].getMagnifierZoomStyle(isActive && !inPlace, transitionSpeed)), style), {}, {
-      overflow: "hidden",
-      pointerEvents: "none"
+      overflow: 'hidden',
+      pointerEvents: 'none'
     }),
     ref: zoomRef
   }, /*#__PURE__*/_react["default"].createElement(_Image["default"], {
@@ -60,12 +65,5 @@ MagnifierZoom.propTypes = {
   imageAlt: _propTypes["default"].string,
   onImageLoad: _propTypes["default"].func,
   transitionSpeed: _propTypes["default"].number
-};
-MagnifierZoom.defaultProps = {
-  style: {},
-  imageSrc: "",
-  imageAlt: "",
-  onImageLoad: _utils["default"].noop,
-  transitionSpeed: 0.4
 };
 var _default = exports["default"] = MagnifierZoom;

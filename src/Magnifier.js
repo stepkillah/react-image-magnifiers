@@ -4,28 +4,26 @@ import utils from './utils';
 import ReactInputPosition, { TOUCH_ACTIVATION, MOUSE_ACTIVATION } from '@stepkillah/react-input-position';
 import MagnifierRenderer from './MagnifierRenderer';
 
-const Magnifier = (props) => {
-  const {
-    imageSrc,
-    largeImageSrc,
-    imageAlt,
-    cursorStyle,
-    cursorStyleActive,
-    renderOverlay,
-    dragToMove,
-    className,
-    style,
-    mouseActivation,
-    touchActivation,
-    interactionSettings,
-    onImageLoad,
-    onLargeImageLoad,
-    onImageError,
-    onLargeImageError,
-    onZoomStart,
-    onZoomEnd
-  } = props;
-
+const Magnifier = ({
+  imageSrc = '',
+  largeImageSrc = '',
+  imageAlt = '',
+  cursorStyle = 'zoom-in',
+  cursorStyleActive = '',
+  dragToMove = true,
+  mouseActivation = MOUSE_ACTIVATION.CLICK,
+  touchActivation = TOUCH_ACTIVATION.TAP,
+  interactionSettings = {},
+  onImageLoad = utils.noop,
+  onLargeImageLoad = utils.noop,
+  renderOverlay,
+  className,
+  style,
+  onImageError,
+  onLargeImageError,
+  onZoomStart,
+  onZoomEnd
+}) => {
   const finalActiveCursorStyle = cursorStyleActive || dragToMove ? 'move' : 'zoom-out';
 
   return (

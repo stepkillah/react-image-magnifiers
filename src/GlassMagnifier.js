@@ -4,29 +4,27 @@ import utils from './utils';
 import ReactInputPosition, { TOUCH_ACTIVATION, MOUSE_ACTIVATION } from '@stepkillah/react-input-position';
 import GlassRenderer from './GlassRenderer';
 
-const GlassMagnifier = (props) => {
-  const {
-    imageSrc,
-    largeImageSrc,
-    imageAlt,
-    magnifierBorderSize,
-    magnifierBorderColor,
-    magnifierBackgroundColor,
-    magnifierSize,
-    magnifierOffsetX,
-    magnifierOffsetY,
-    square,
-    cursorStyle,
-    renderOverlay,
-    allowOverflow,
-    style,
-    className,
-    onImageLoad,
-    onLargeImageLoad,
-    onZoomStart,
-    onZoomEnd
-  } = props;
-
+const GlassMagnifier = ({
+  imageSrc = '',
+  largeImageSrc = '',
+  imageAlt = '',
+  allowOverflow = false,
+  magnifierBorderSize = 3,
+  magnifierBorderColor = 'rgba(255,255,255,.5)',
+  magnifierBackgroundColor = 'rgba(225,225,225,.5)',
+  magnifierSize = '25%',
+  magnifierOffsetX = 0,
+  magnifierOffsetY = 0,
+  square = false,
+  cursorStyle = 'none',
+  onImageLoad = utils.noop,
+  onLargeImageLoad = utils.noop,
+  renderOverlay,
+  style,
+  className,
+  onZoomStart,
+  onZoomEnd
+}) => {
   return (
     <ReactInputPosition
       style={{
